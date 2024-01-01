@@ -22,99 +22,99 @@ using postman make an api call according to the below API's <br>
 
 1. Register a New User:
 
-    URL: http://localhost:8080/api/v1/auth/register
-    Method: POST
+    URL: http://localhost:8080/api/v1/auth/register<br>
+    Method: POST<br>
     Input:
-         firstName, lastName, email, password as a String in JSON format in the body
+         firstName, lastName, email, password as a String in JSON format in the body <br>
     Output: Getting a jwt token if registration is succesful.
 
 2. Log In:
 
     URL: http://localhost:8080/api/v1/auth/login
-    Method: POST
+    Method: POST<br>
     Input:
-        email, password as a String in JSON format in the body
+        email, password as a String in JSON format in the body<br>
     Output: Getting a jwt token if the login is successful.
 
 ### Folders
 
 1. Get All Public Folders By All Users:
 
-    URL: http://localhost:8080/api/v1/user/folder/all
-    Method: GET
-    Input: the jwt token as a bearer token
-    Output: A list of all public folders in the system.
+    URL: http://localhost:8080/api/v1/user/folder/all<br>
+    Method: GET<br>
+    Input: the jwt token as a bearer token<br>
+    Output: A list of all public folders in the system.<br>
 
 2. Get Your Folders:
 
-    URL: http://localhost:8080/api/v1/user/folder/user
-    Method: GET
-    Input: the jwt token as a bearer token
-    Output: A list of all your folders, both public and private.
+    URL: http://localhost:8080/api/v1/user/folder/user<br>
+    Method: GET<br>
+    Input: the jwt token as a bearer token<br>
+    Output: A list of all your folders, both public and private.<br>
 
-3. Get Your Private Folders:
+3. Get Your Private Folders:<br>
 
-    URL: http://localhost:8080/api/v1/user/folder/private
-    Method: GET
-    Input: the jwt token as a bearer token
-    Output: A list of only your private folders.
+    URL: http://localhost:8080/api/v1/user/folder/private<br>
+    Method: GET<br>
+    Input: the jwt token as a bearer token<br>
+    Output: A list of only your private folders.<br>
 
 ### Creating and Deleting Folders
 
 4. Create a Folder:
 
-    URL: http://localhost:8080/api/v1/user/folder/add
-    Method: POST
-    Input:
-        the jwt token as a bearer token
-        name as a String, isPrivate as boolean in the body
-    Output: A message confirming if the folder was created successfully.
+    URL: http://localhost:8080/api/v1/user/folder/add<br>
+    Method: POST<br>
+    Input:<br>
+        the jwt token as a bearer token<br>
+        name as a String, isPrivate as boolean in the body<br>
+    Output: A message confirming if the folder was created successfully.<br>
 
 5. Delete a Folder:
 
-    URL: http://localhost:8080/api/v1/user/folder/delete
-    Method: DELETE
+    URL: http://localhost:8080/api/v1/user/folder/delete<br>
+    Method: DELETE<br>
     Input:
-        the jwt token as a bearer token
-        The ID of the folder you want to delete as a request parameter
-    Output: A message confirming if the folder was deleted successfully.
+        the jwt token as a bearer token<br>
+        The ID of the folder you want to delete as a request parameter<br>
+    Output: A message confirming if the folder was deleted successfully.<br>
 
 ### Notes
 
 6. Create a Note:
 
-    URL: http://localhost:8080/api/v1/user/note/add
-    Method: POST
+    URL: http://localhost:8080/api/v1/user/note/add<br>
+    Method: POST<br>
     Input:
-        the jwt token as a bearer token
-        the title, description, folderId as A String in the body
+        the jwt token as a bearer token<br>
+        the title, description, folderId as A String in the body<br>
     Output: A message confirming if the note was created successfully.
 
 8. Delete a Note:
 
-    URL: http://localhost:8080/api/v1/user/note/remove
-    Method: DELETE
+    URL: http://localhost:8080/api/v1/user/note/remove<br>
+    Method: DELETE<br>
     Input:
-        the jwt token as a bearer token
-        The ID of the note you want to delete as a request parameter
+        the jwt token as a bearer token<br>
+        The ID of the note you want to delete as a request parameter<br>
     Output: A message confirming if the note was deleted successfully.
 
 ### Managing Images in Folders
 
 8. Add an Image to a Folder:
 
-    URL: http://localhost:8080/api/v1/user/folder/image/add
-    Method: POST
+    URL: http://localhost:8080/api/v1/user/folder/image/add<br>
+    Method: POST<br>
     Input:
-        the jwt token as a bearer token
-        The ID of the folder, The image path or url as a String
+        the jwt token as a bearer token<br>
+        The ID of the folder, The image path or url as a String<br>
     Output: A message confirming if the image was added successfully.
 
 9. Delete an Image from a Folder:
 
-    URL: http://localhost:8080/api/v1/user/folder/image/delete
-    Method: DELETE
+    URL: http://localhost:8080/api/v1/user/folder/image/delete<br>
+    Method: DELETE<br>
     Input:
-       the jwt token as a bearer token
-        The ID of the folder, The image path or url as a String
+       the jwt token as a bearer token<br>
+        The ID of the folder, The image path or url as a String<br>
     Output: A message confirming if the image was deleted successfully.
