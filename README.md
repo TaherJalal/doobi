@@ -107,7 +107,7 @@ using postman make an api call according to the below API's <br>
     Method: POST<br>
     Input:
         the jwt token as a bearer token<br>
-        The ID of the folder, The image path or url as a String<br>
+        The ID of the folder, The image path or url as a String in the body<br>
     Output: A message confirming if the image was added successfully.
 
 9. Delete an Image from a Folder:
@@ -116,5 +116,5 @@ using postman make an api call according to the below API's <br>
     Method: DELETE<br>
     Input:
        the jwt token as a bearer token<br>
-        The ID of the folder, The image path or url as a String<br>
+        The ID of the folder, The image path or url as a String in the body<br>
     Output: A message confirming if the image was deleted successfully.
