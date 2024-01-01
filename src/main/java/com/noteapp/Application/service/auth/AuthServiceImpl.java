@@ -38,6 +38,10 @@ public class AuthServiceImpl implements AuthService {
 //            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"not a valid email address");
 //        }
 //
+//        if (registerDto.getPassword().length() > 16 || registerDto.getPassword().length() < 3){
+//            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"password must be 2 to 16 characters long");
+//        }
+//
 //        if (!registerDto.getPassword().contains("@") || !registerDto.getPassword().contains(".")){
 //            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"weak password");
 //        }

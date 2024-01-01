@@ -23,6 +23,7 @@ public class Folder {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
+    @Column(length = 25)
     private String name;
     private Boolean isPrivate;
     private List<String> images = new ArrayList<>();

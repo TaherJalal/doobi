@@ -21,7 +21,9 @@ public class Note {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
+    @Column(length = 25)
     private String title;
+    @Column(length = 100)
     private String description;
 
     @JsonBackReference

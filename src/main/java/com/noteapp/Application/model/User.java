@@ -23,10 +23,13 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
+   @Column(length = 25)
     private String firstName;
+    @Column(length = 25)
     private String lastName;
-    @Column(unique = true)
+    @Column(unique = true, length = 50)
     private String email;
+    @Column(length = 17)
     private String pass;
     private Role role;
 
