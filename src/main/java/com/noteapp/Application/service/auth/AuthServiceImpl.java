@@ -3,6 +3,7 @@ package com.noteapp.Application.service.auth;
 import com.noteapp.Application.dto.auth.LoginDto;
 import com.noteapp.Application.dto.auth.RegisterDto;
 import com.noteapp.Application.dto.auth.TokenSubject;
+import com.noteapp.Application.model.Role;
 import com.noteapp.Application.model.User;
 import com.noteapp.Application.repository.UserRepository;
 import com.noteapp.Application.service.jwt.JwtService;
@@ -47,6 +48,7 @@ public class AuthServiceImpl implements AuthService {
                 .firstName(registerDto.getFirstName())
                 .lastName(registerDto.getLastName())
                 .email(registerDto.getEmail())
+                .role(Role.USER)
                 .pass(passwordEncoder.encode(registerDto.getPassword()))
                 .build();
 
@@ -65,7 +67,7 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public String login(LoginDto loginDto) {
-        authManager.authenticate(new UsernamePasswordAuthenticationToken(loginDto.getEmail(),loginDto.getEmail()));
+        authManager.authenticate(new UsernamePasswordAuthenticationToken(loginDto.getEmail(),loginDto.getPassword()));
 
         var user = userRepository.getUserByEmail(loginDto.getEmail()).orElseThrow();
 

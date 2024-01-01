@@ -8,6 +8,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.*;
@@ -27,19 +28,19 @@ public class User implements UserDetails {
     @Column(unique = true)
     private String email;
     private String pass;
+    private Role role;
 
     @JsonIgnore
     @ElementCollection
     @CollectionTable(name = "user_folders", joinColumns = @JoinColumn(name = "user_id"))
     @Column(name = "folder_id", nullable = true)
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user",fetch = FetchType.EAGER)
     private List<Folder> folderIds = new ArrayList<>();
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return List.of(new SimpleGrantedAuthority(role.name()));
     }
-
 
     @Override
     public String getUsername() {

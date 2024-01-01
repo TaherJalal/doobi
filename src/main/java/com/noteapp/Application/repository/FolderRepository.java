@@ -11,6 +11,7 @@ import java.util.UUID;
 
 @Repository
 public interface FolderRepository extends JpaRepository<Folder, UUID> {
+    Folder findFolderById(UUID id);
     @Query("SELECT f FROM Folder f WHERE f.isPrivate = false")
     List<Folder> findAllFolders();
 
@@ -19,4 +20,9 @@ public interface FolderRepository extends JpaRepository<Folder, UUID> {
 
     @Query("SELECT f FROM Folder f JOIN f.user u WHERE u.id = :id AND f.isPrivate = true")
     List<Folder> findAllUserPrivateFolderByUserId(UUID id);
+
+    Folder getFolderById(UUID id);
+
+    @Query("DELETE from Folder f WHERE f.id= :id")
+    String deleteFolderById(UUID id);
 }

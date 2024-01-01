@@ -9,8 +9,8 @@ import java.util.List;
 import java.util.UUID;
 
 public interface FolderService {
-    String createFolder(FolderCreationDto folderCreationDto);
-
-
-
+    String createFolder(String userId,FolderCreationDto folderCreationDto);
+    String deleteFolder(UUID id);
+    String addImage(UUID id ,String image);
+    String removeImage(UUID id ,String image);
 }

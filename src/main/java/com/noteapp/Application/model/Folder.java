@@ -1,5 +1,6 @@
 package com.noteapp.Application.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
@@ -24,10 +25,10 @@ public class Folder {
     private UUID id;
     private String name;
     private Boolean isPrivate;
-    private List<String> images= new ArrayList<>();
+    private List<String> images = new ArrayList<>();
 
     @JsonIgnore
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
@@ -35,6 +36,7 @@ public class Folder {
     @ElementCollection
     @CollectionTable(name = "user_notes", joinColumns = @JoinColumn(name = "folder_id"))
     @Column(name = "note_ids", nullable = true)
-    @OneToMany(mappedBy = "folder", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "folder", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Note> notes = new ArrayList<>();
+
 }

@@ -4,6 +4,7 @@ import com.noteapp.Application.dto.auth.LoginDto;
 import com.noteapp.Application.dto.auth.RegisterDto;
 import com.noteapp.Application.service.auth.AuthService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
